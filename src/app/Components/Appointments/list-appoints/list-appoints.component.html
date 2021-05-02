@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            <h1 align="center"><img src="https://www.flaticon.es/svg/static/icons/svg/3022/3022343.svg" width="100" height="100" class="d-inline-block align-top" alt="">
+              Patient Appointments
+            </h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>DPI</th>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Reason</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor= "let appoint of appointments | async" (click)="EditAppoint(appoint.idAppointment)" >
+                    <td>{{appoint.dpi}}</td>
+                    <td>{{appoint.name}}</td>
+                    <td>{{appoint.lastName}}</td>
+                    <td>{{appoint.reason}}</td>
+                    <td>{{appoint.dateAppointment}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button (click)="AddAppoint()" class="btn btn-success">Schedule Appoint</button>
+        </div>
+    </div>
+  </div>

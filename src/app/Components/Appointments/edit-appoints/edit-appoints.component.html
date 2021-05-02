@@ -1,0 +1,38 @@
+<div *ngIf="alertUpdate" class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Appointment</strong> has been Rescheduled!
+    <button (click)="gotoList()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div align="center">
+    <img src="https://www.flaticon.es/svg/static/icons/svg/2625/2625377.svg" width="500" height="200"  alt="">
+  </div>
+  <div class="container col-md-6">
+    <div class="card">
+        <div class="card-header text-white bg-dark">
+            <h3>Reschedule Appointment</h3>
+        </div>
+        <div class="card-body">
+          <form  (ngSubmit)="onSubmit()" ngNativeValidate>
+                <div class="form-row" *ngFor="let a of appoint">
+                    <div class="form-group col-md-4">
+                        <label>DPI</label>
+                        <input type="text" class="form-control" id="dpi" required [(ngModel)]="a.dpi" name="dpi" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Appointment Reason</label>
+                        <input type="text" class="form-control" id="reason" required [(ngModel)]="a.reason" name="reason" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Appointment Date</label>
+                      <input type="datetime-local" class="form-control" id="dateAppointment" required [(ngModel)]="a.dateAppointment" name="dateAppointment" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-info"  name="btn_update" id="btn_update" value="btn_update">Update Appointment</button>
+                <button type="submit" (click)="gotoList()" class="btn btn-dark"  name="return" id="return" value="return" style="margin-left: 10px;">Return</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  

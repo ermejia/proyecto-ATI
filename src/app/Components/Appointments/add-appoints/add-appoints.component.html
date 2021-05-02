@@ -1,0 +1,36 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Appintment</strong> has been scheduled!
+    <button (click)="gotoList()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div align="center">
+    <img src="https://www.flaticon.es/svg/static/icons/svg/1518/1518148.svg" width="500" height="200"  alt="">
+  </div>
+  <div class="container col-md-6">
+    <div class="card">
+        <div class="card-header text-white bg-dark">
+            <h3>New Appointment</h3>
+        </div>
+        <div class="card-body">
+          <form  (ngSubmit)="onSubmit()" ngNativeValidate>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>DPI</label>
+                        <input type="text" class="form-control" id="dpi" required [(ngModel)]="appoint.dpi" name="dpi" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Appointment Reason</label>
+                        <input type="text" class="form-control" id="reason" required [(ngModel)]="appoint.reason" name="reason" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Appointment Date</label>
+                      <input type="datetime-local" class="form-control" id="dateAppointment" required [(ngModel)]="appoint.dateAppointment" name="dateAppointment" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-info"  name="btn_create" id="btn_create" value="btn_create">Create Appointment</button>
+                <button type="submit" (click)="gotoList()" class="btn btn-dark"  name="return" id="return" value="return" style="margin-left: 10px;">Return</button>
+            </form>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,62 @@
+<div *ngIf="alertUpdate" class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Patient</strong> has been updated!
+    <button (click)="gotoList()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+    <div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Patient</strong> has been deleted!
+      <button (click)="gotoList()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+  
+  <div align="center">
+    <img src="https://www.flaticon.com/svg/vstatic/svg/4228/4228719.svg?token=exp=1619499336~hmac=44b0ae34a3d4411702fb7b03ad2846e6" width="500" height="200"  alt="">
+  </div>
+  <div class="container col-md-6">
+    <div class="card">
+        <div class="card-header text-dark text-center">
+            <h3>Update Patient Data</h3>
+        </div>
+        <div class="card-body">
+          <form ngNativeValidate>
+                <div *ngFor="let p of patient" class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>DPI</label>
+                        <input type="text" pattern="[0-9]{13}" class="form-control" id="dpi" required [(ngModel)]="p.dpi" name="dpi" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" id="name" required [(ngModel)]="p.name" name="name" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" id="surname" required [(ngModel)]="p.surname" name="surname" required>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label>Address</label>
+                        <input type="text" class="form-control" id="address" required [(ngModel)]="p.address" name="address" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Birth Date</label>
+                      <input type="date" class="form-control" id="birthdate" required [(ngModel)]="p.birthdate" name="birthdate" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Phone</label>
+                        <input type="number" pattern="[0-9]{8}" class="form-control" id="phone" required [(ngModel)]="p.phone" name="phone" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Contact Phone</label>
+                        <input type="number" pattern="[0-9]{8}" class="form-control" id="contactphone" required [(ngModel)]="p.contactphone" name="contactphone" required>
+                    </div>
+                  </div>
+                  <button type="submit" (click)="onSubmit()" class="btn btn-success" style="margin: 10px" name="btn_update" id="btn_create" value="btn_update">Save</button>
+                  <button type="submit"  (click)="deletePatient()" class="btn btn-danger" style="margin: 10px" name="btn_update" id="btn_create">Delete</button>
+                  <button type="submit" (click)="gotoList()" class="btn btn-info"  name="return" id="return" value="return" style="margin-left: 10px;">Return</button>
+            </form>
+        </div>
+    </div>
+  </div>  

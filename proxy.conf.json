@@ -1,0 +1,9 @@
+{
+    "/ClinicaWeb-1.0-SNAPSHOT": {
+      "target": "http://localhost:7001",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
